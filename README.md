@@ -1,2 +1,0 @@
-# GuardThiver
-SimpleBot GuardThiver
