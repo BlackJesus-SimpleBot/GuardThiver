@@ -14,8 +14,8 @@ import simple.hooks.scripts.task.Task;
 import simple.hooks.scripts.task.TaskScript;
 import simple.hooks.simplebot.ChatMessage;
 
-@ScriptManifest(author = "BlackJesus", category = Category.THIEVING, description = "Thives guard's at falador have lobsters in bank!",
-discord = "BlackJesus#7321", name = "Guard Thiver", servers = { "Zenyte" }, version = "0.1")
+@ScriptManifest(author = "BlackJesus", category = Category.THIEVING, description = "Pickpocket's guard's at falador have lobsters in bank!",
+discord = "BlackJesus#7321", name = "Guard Thiver", servers = { "Zenyte" }, version = "0.2")
 public class GuardThiver extends TaskScript {
 	private long startTime = 0;
     private long startingThievingLevel;
