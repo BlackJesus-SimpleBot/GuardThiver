@@ -13,7 +13,7 @@ public class StealTask extends Task {
 
 	@Override
 	public boolean condition() {
-		return ctx.players.getLocal().getHealth() >= 9;
+		return ctx.combat.health() >= 9;
 	}
 
 	@Override
