@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import me.GuardThiver.tasks.BankTask;
+import me.GuardThiver.tasks.EatTask;
 import me.GuardThiver.tasks.StealTask;
 import simple.hooks.filters.SimpleSkills.Skills;
 import simple.hooks.scripts.Category;
@@ -14,13 +15,15 @@ import simple.hooks.scripts.task.Task;
 import simple.hooks.scripts.task.TaskScript;
 import simple.hooks.simplebot.ChatMessage;
 
-@ScriptManifest(author = "BlackJesus", category = Category.THIEVING, description = "Pickpocket's guard's at falador bank's/eat's/opens pouches",
-discord = "BlackJesus#7321", name = "Guard Thiver", servers = { "Zenyte" }, version = "0.2")
+@ScriptManifest(author = "BlackJesus", category = Category.THIEVING, description = "Pickpocket's guard's at falador Have lobster in your bank!",
+discord = "BlackJesus#7321", name = "Guard Thiver", servers = { "Zenyte" }, version = "0.3")
 
 public class GuardThiver extends TaskScript {
 	private long startTime = 0;
     private long startingThievingLevel;
     private long startingThievingExp;
+
+
     
     private List<Task> tasks = new ArrayList<Task>();
     
@@ -29,26 +32,28 @@ public class GuardThiver extends TaskScript {
     	startTime = System.currentTimeMillis();
         startingThievingLevel = ctx.skills.realLevel(Skills.THIEVING);
         startingThievingExp = ctx.skills.experience(Skills.THIEVING);
-        tasks.addAll(Arrays.asList(new BankTask(ctx), new StealTask(ctx)));// Adds our tasks to our {task} list for execution
-        System.out.println("Started GuardThiver!");
+        tasks.addAll(Arrays.asList(new BankTask(ctx), new StealTask(ctx), new EatTask(ctx)));
+		System.out.println("Welcome to GuardThiver!");
+		System.out.println("If you experience any bug's please report them to me on discord!");
+		System.out.println("Ejoy the script and get some thiving lvl's!!");
+
     }
     
     @Override
     public List<Task> tasks() {
-        return tasks;// Tells our TaskScript these are the tasks we want executed
+        return tasks;
     }
 
     @Override
     public boolean prioritizeTasks() {
-        return true;// Will prioritize tasks in order added in our {tasks} List
+        return true;
     }
     
-    // This method is not needed as the TaskScript class will call it, itself
+    
     @Override
     public void onProcess() {
-        // Can add anything here before tasks have been ran
-        super.onProcess();// Needed for the TaskScript to process the tasks
-        //Can add anything here after tasks have been ran
+        
+        super.onProcess();
     }
 
     @Override
